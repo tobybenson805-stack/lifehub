@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080D1B">
+  <link rel="manifest" href="/manifest.json">
   <title>LIFEHUB - Everything in One Place</title>
 
   <style>
@@ -252,6 +253,16 @@
       alert(name + ' is coming soon to LIFEHUB!');
     }
   </script>
-
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(() => console.log("LIFEHUB is ready!"))
+        .catch(error => console.error(
+          "Service worker error:", error
+        ));
+    });
+  }
+</script>
 </body>
 </html>
