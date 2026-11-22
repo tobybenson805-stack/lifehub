@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080D1B">
+  <title>LIFEHUB - Everything in One Place</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #080D1B;
+      color: white;
+      min-height: 100vh;
+      padding-bottom: 85px;
+    }
+
+    header {
+      padding: 22px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #9875FF;
+    }
+
+    .profile {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #202B48;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+    }
+
+    main {
+      padding: 10px 18px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #30205F, #172D54);
+      padding: 25px 20px;
+      border-radius: 22px;
+      margin-bottom: 28px;
+    }
+
+    .hero small {
+      color: #C7B7FF;
+      font-size: 12px;
+    }
+
+    .hero h1 {
+      font-size: 27px;
+      margin: 13px 0;
+    }
+
+    .hero p {
+      color: #CCD5E9;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .hero button {
+      margin-top: 20px;
+      border: none;
+      border-radius: 12px;
+      padding: 13px 20px;
+      background: #9674FF;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .section-title {
+      font-size: 19px;
+      margin-bottom: 16px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
+    }
+
+    .feature {
+      background: #151F35;
+      border: 1px solid #25314B;
+      padding: 18px 14px;
+      border-radius: 17px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .feature:active {
+      transform: scale(.96);
+    }
+
+    .feature .icon {
+      font-size: 27px;
+      margin-bottom: 13px;
+    }
+
+    .feature h3 {
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    .feature p {
+      color: #A7B5CE;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .daily {
+      background: #151F35;
+      border-radius: 17px;
+      padding: 19px;
+      margin-top: 25px;
+    }
+
+    .daily p {
+      color: #B8C5DC;
+      line-height: 1.6;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #10182A;
+      border-top: 1px solid #26324B;
+      display: flex;
+      justify-content: space-around;
+      padding: 13px 5px;
+    }
+
+    nav a {
+      color: #AAB7D0;
+      text-decoration: none;
+      text-align: center;
+      font-size: 11px;
+    }
+
+    nav a span {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    nav a.active {
+      color: #A88AFF;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">LIFE<span>HUB.</span></div>
+    <div class="profile">👤</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <small>YOUR DAILY SPACE</small>
+      <h1>Welcome to LIFEHUB</h1>
+      <p>Discover. Learn. Connect. Create.<br>
+      Everything you need, all in one place.</p>
+      <button onclick="explore()">Explore LIFEHUB →</button>
+    </section>
+
+    <h2 class="section-title">Explore Features</h2>
+
+    <section class="features">
+      <div class="feature" onclick="openFeature('AI Assistant')">
+        <div class="icon">✨</div>
+        <h3>LIFEHUB AI</h3>
+        <p>Your smart AI assistant.</p>
+      </div>
+
+      <div class="feature" onclick="openFeature('Community')">
+        <div class="icon">👥</div>
+        <h3>Community</h3>
+        <p>Connect with people.</p>
+      </div>
+
+      <div class="feature" onclick="openFeature('Entertainment')">
+        <div class="icon">🎮</div>
+        <h3>Entertainment</h3>
+        <p>Games and challenges.</p>
+      </div>
+
+      <div class="feature" onclick="openFeature('Learning')">
+        <div class="icon">📚</div>
+        <h3>Learning</h3>
+        <p>Grow your knowledge.</p>
+      </div>
+
+      <div class="feature" onclick="openFeature('Daily Planner')">
+        <div class="icon">📅</div>
+        <h3>Daily Planner</h3>
+        <p>Organize your day.</p>
+      </div>
+
+      <div class="feature" onclick="openFeature('Discover')">
+        <div class="icon">🌍</div>
+        <h3>Discover</h3>
+        <p>Find something new.</p>
+      </div>
+    </section>
+
+    <section class="daily">
+      <h3>☀️ Daily Inspiration</h3>
+      <p>Make today count. Learn something, achieve something and connect with someone.</p>
+    </section>
+  </main>
+
+  <nav>
+    <a href="#" class="active"><span>⌂</span>Home</a>
+    <a href="#features"><span>🔎</span>Discover</a>
+    <a href="#ai" onclick="openFeature('AI Assistant')"><span>✨</span>AI</a>
+    <a href="#community" onclick="openFeature('Community')"><span>👥</span>Social</a>
+    <a href="#profile" onclick="openFeature('Profile')"><span>👤</span>Profile</a>
+  </nav>
+
+  <script>
+    function explore() {
+      document.querySelector('.section-title')
+        .scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function openFeature(name) {
+      alert(name + ' is coming soon to LIFEHUB!');
+    }
+  </script>
+
+</body>
+</html>
