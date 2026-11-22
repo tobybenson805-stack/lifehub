@@ -187,7 +187,10 @@
       <p>Discover. Learn. Connect. Create.<br>
       Everything you need, all in one place.</p>
       <button onclick="explore()">Explore LIFEHUB →</button>
-    </section>
+    <button id="installBtn" style="display:none;">
+  📲 Install LIFEHUB
+</button>
+</section>
 
     <h2 class="section-title">Explore Features</h2>
 
@@ -266,31 +269,33 @@
 </script>
 
 <script>
+
 let deferredPrompt;
 
 const installBtn = document.getElementById("installBtn");
 
-window.addEventListener("beforeinstallprompt", (event) => {
-  event.preventDefault();
+if (installBtn) {
+  window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    deferredPrompt = event;
+    installBtn.style.display = "block";
+  });
 
-  deferredPrompt = event;
-  installBtn.style.display = "block";
-});
+  installBtn.addEventListener("click", async () => {
+    if (!deferredPrompt) return;
 
-installBtn.addEventListener("click", async () => {
-  if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
 
-  deferredPrompt.prompt();
+    deferredPrompt = null;
+    installBtn.style.display = "none";
+  });
 
-  await deferredPrompt.userChoice;
+  window.addEventListener("appinstalled", () => {
+    installBtn.style.display = "none";
+  });
+}
 
-  deferredPrompt = null;
-  installBtn.style.display = "none";
-});
-
-window.addEventListener("appinstalled", () => {
-  installBtn.style.display = "none";
-});
 </script>
 
 </body>
